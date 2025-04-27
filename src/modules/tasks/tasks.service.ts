@@ -12,10 +12,7 @@ export class TasksService {
 
   findOneTask(id: string) {
     console.log(`get task by ID ->${id}`);
-    return {
-      id,
-      name: `task ${id}`,
-    };
+    return { id, name: `task ${id}` };
   }
 
   createTask(createTaskDto: CreateTaskDto) {
