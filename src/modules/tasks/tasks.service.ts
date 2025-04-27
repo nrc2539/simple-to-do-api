@@ -20,7 +20,7 @@ export class TasksService {
 
   createTask(createTaskDto: CreateTaskDto) {
     const { name, description } = createTaskDto;
-    console.log(`task name ---> ${name}, description ${description}`);
+    console.log(`task name ---> ${name}, description ${description}.`);
   }
 
   deleteTask(id: string) {
