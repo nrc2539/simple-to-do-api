@@ -7,22 +7,25 @@ import { GetAllTasksDto } from './dto/get-all-tasks.dto';
 export class TasksController {
   constructor(private taskService: TasksService) {}
   @Get()
-  getAllTasks(@Body() getAllTasksDto: GetAllTasksDto) {
-    this.taskService.findAllTasks(getAllTasksDto);
+  async getAllTasks(@Body() getAllTasksDto: GetAllTasksDto) {
+    const tasks = await this.taskService.findAllTasks(getAllTasksDto);
+    return tasks;
   }
 
   @Get(':id')
-  getTaskFindOne(@Param('id') id: string) {
-    this.taskService.findOneTask(id);
+  async getTaskFindOne(@Param('id') id: number) {
+    const task = await this.taskService.findOneTask(id);
+    return task;
   }
 
   @Post()
-  crateTask(@Body() createTaskDto: CreateTaskDto) {
-    this.taskService.createTask(createTaskDto);
+  async crateTask(@Body() createTaskDto: CreateTaskDto) {
+    const task = await this.taskService.createTask(createTaskDto);
+    return task;
   }
 
   @Delete('/:id')
-  deleteTask(@Param('id') id: string) {
-    this.taskService.deleteTask(id);
+  async deleteTask(@Param('id') id: number) {
+    return await this.taskService.deleteTask(id);
   }
 }
