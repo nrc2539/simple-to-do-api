@@ -3,7 +3,7 @@ import { TaskStatus } from '../task.enum';
 
 export class UpdateTaskDto {
   @IsOptional()
-  name?: string;
+  title?: string;
 
   @IsOptional()
   description?: string;
